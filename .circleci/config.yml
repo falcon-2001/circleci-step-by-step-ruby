@@ -41,8 +41,6 @@ jobs:
           path: test_results
       - store_artifacts:
           path: test_results
-
-
     deploy:
       docker:
         - image: buildpack-deps:trusty
