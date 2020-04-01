@@ -58,7 +58,7 @@ workflows:
   build:
     jobs:
       - "ruby-2.6.3"
-      - "deploy"
+      - "deploy":
          requires:
             - "ruby-2.6.3"
 
