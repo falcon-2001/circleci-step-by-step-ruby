@@ -42,11 +42,25 @@ jobs:
       - store_artifacts:
           path: test_results
 
+
+    deploy:
+      docker:
+        - image: buildpack-deps:trusty
+      steps:
+        - checkout
+        - run:
+            name: Deploy from Master to Heroku
+            command: |
+              git push https://heroku:97107981-49b5-4414-8f88-a6314ddcae9d@git.heroku.com/hirono.git master
+
 workflows:
   version: 2
   build:
     jobs:
       - "ruby-2.6.3"
+      - "deploy"
+         requires:
+            - "ruby-2.6.3"
 
 
 
